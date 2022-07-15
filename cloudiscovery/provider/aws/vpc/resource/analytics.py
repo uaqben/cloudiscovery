@@ -186,9 +186,15 @@ class QUICKSIGHT(ResourceProvider):
                     AwsAccountId=account_id, DataSourceId=data["DataSourceId"]
                 )
 
-                if "RdsParameters" in data_source["DataSource"]["DataSourceParameters"]:
+                key = "DataSourceParameters"
+                if key not in data_source["DataSource"]:
+                    key = "AlternateDataSourceParameters"
+                    if key not in data_source["DataSource"]:
+                        key = None
 
-                    instance_id = data_source["DataSource"]["DataSourceParameters"][
+                if key and "RdsParameters" in data_source["DataSource"][key]:
+
+                    instance_id = data_source["DataSource"][key][
                         "RdsParameters"
                     ]["InstanceId"]
                     rds = RDS(self.vpc_options).get_resources(instance_id=instance_id)
