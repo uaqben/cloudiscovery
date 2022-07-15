@@ -39,8 +39,6 @@ class RDS(ResourceProvider):
                 "mysql",
                 "oracle-ee",
                 "oracle-se2",
-                "oracle-se1",
-                "oracle-se",
                 "postgres",
                 "sqlserver-ee",
                 "sqlserver-se",
