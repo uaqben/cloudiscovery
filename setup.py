@@ -16,7 +16,7 @@ requires = [
     "boto3",
     "ipaddress",
     "diagrams>=0.13",
-    "jinja2<3.0",
+    "jinja2>=3.0",
     "cachetools",
     "diskcache",
     "pytz",
